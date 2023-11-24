@@ -19,9 +19,9 @@ const hideMenu = () => {
     setIsMenuOpen(false);
 };
 
-useEffect(()=>{
-    showMenu(); // Call the function to show the menu on component mount
-}, []);
+// useEffect(()=>{
+//     showMenu(); // Call the function to show the menu on component mount
+// }, []);
   return (
     <>
  <section className="Sub-header">

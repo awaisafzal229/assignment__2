@@ -154,6 +154,15 @@ nav .fa {
       z-index: 1000;
       transition: 1.2s;
   }
+  .blocklg {
+    display: block !important;
+}
+
+@media only screen and (min-width: 992px) {
+    .blocklg {
+        display: block !important;
+    }
+}
   nav .fa {
       display: block;
       color: #ffff;
