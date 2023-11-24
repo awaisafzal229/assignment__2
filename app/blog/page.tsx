@@ -1,7 +1,27 @@
-import Link from "next/link"
+"use client"
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { log } from 'console';
 
+interface BlogProps {}
 
-function Blog() {
+const Blog: React.FC<BlogProps> = () => {
+const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+const showMenu = () => {
+    console.log("Showing menu");
+    
+    setIsMenuOpen(true);
+};
+
+const hideMenu = () => {
+    console.log("Hiding menu");
+    setIsMenuOpen(false);
+};
+
+useEffect(()=>{
+    showMenu(); // Call the function to show the menu on component mount
+}, []);
     return (<>
 
         <section className="Sub-header">
@@ -9,9 +29,9 @@ function Blog() {
                 <Link href="/" className="logo">Xplore
                     <i className="fab fa-staylinked"></i>kill
                 </Link>
-                <div className="nav-links" id="navLinks">
+                <div className={`nav-links ${isMenuOpen ? 'show' : ''}`} id="navLinks">
                     {/* <!-- reposnive bar open and close --> */}
-                    <i className="fa fa-times" onclick="hideMenu()"></i>
+                    <i className="fa fa-times" onClick={()=>hideMenu()}></i>
                     <ul>
                         <li><Link href="/">Home</Link></li>
                         <li><Link href="/course">Course</Link></li>
@@ -20,7 +40,7 @@ function Blog() {
                         <li><Link href="/contact">Contact</Link></li>
                     </ul>
                 </div>
-                <i className="fa fa-bars" onclick="showMenu()"></i>
+                <i className="fa fa-bars" onClick={()=>showMenu()}></i>
                 {/* <!-- reposnive bar open and close --> */}
             </nav>
             <h1>OUR POST</h1>
@@ -88,7 +108,7 @@ function Blog() {
                         </div>
                     </section>
 
-                    {/* <!-- Blog Page Section end --> */}
+                    {/* <!-- Blog Blog Section end --> */}
 
                     {/* <!-- Footer Section start --> */}
                     <section className="footer">
